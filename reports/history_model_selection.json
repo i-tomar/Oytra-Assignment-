@@ -1,0 +1,187 @@
+{
+ "selection_rule": "(fixed before running): start from the simplest model; a more complex model replaces it only if it\n  (a) raises mean ROC-AUC by >= 0.01, (b) wins AUC in a majority of folds (2 of 3), and (c) does not worsen mean Brier.\nOtherwise the difference is treated as noise and the simpler model is kept.",
+ "folds": [
+  "2026-04..2026-06 -> 2026-06",
+  "2026-04..2026-07 -> 2026-07",
+  "2026-04..2026-08 -> 2026-08"
+ ],
+ "results": {
+  "no_history": {
+   "folds": [
+    {
+     "train_orders": 637,
+     "test_orders": 324,
+     "test_rto": 85,
+     "roc_auc": 0.597,
+     "pr_auc": 0.331,
+     "brier": 0.1957,
+     "ece": 0.041,
+     "net_rupees_base_HYPOTHETICAL": -803,
+     "fold": "train <2026-06-01 -> test 2026-06"
+    },
+    {
+     "train_orders": 961,
+     "test_orders": 336,
+     "test_rto": 101,
+     "roc_auc": 0.671,
+     "pr_auc": 0.474,
+     "brier": 0.1957,
+     "ece": 0.05,
+     "net_rupees_base_HYPOTHETICAL": 544,
+     "fold": "train <2026-07-01 -> test 2026-07"
+    },
+    {
+     "train_orders": 1297,
+     "test_orders": 361,
+     "test_rto": 101,
+     "roc_auc": 0.71,
+     "pr_auc": 0.504,
+     "brier": 0.1771,
+     "ece": 0.046,
+     "net_rupees_base_HYPOTHETICAL": 1845,
+     "fold": "train <2026-08-01 -> test 2026-08"
+    }
+   ],
+   "mean_roc_auc": 0.6593,
+   "mean_pr_auc": 0.4363,
+   "mean_brier": 0.1895,
+   "mean_ece": 0.0457,
+   "mean_net_rupees_base_HYPOTHETICAL": 528.6667
+  },
+  "reported_history": {
+   "folds": [
+    {
+     "train_orders": 637,
+     "test_orders": 324,
+     "test_rto": 85,
+     "roc_auc": 0.615,
+     "pr_auc": 0.354,
+     "brier": 0.1945,
+     "ece": 0.07,
+     "net_rupees_base_HYPOTHETICAL": -556,
+     "fold": "train <2026-06-01 -> test 2026-06"
+    },
+    {
+     "train_orders": 961,
+     "test_orders": 336,
+     "test_rto": 101,
+     "roc_auc": 0.722,
+     "pr_auc": 0.536,
+     "brier": 0.1838,
+     "ece": 0.054,
+     "net_rupees_base_HYPOTHETICAL": 1200,
+     "fold": "train <2026-07-01 -> test 2026-07"
+    },
+    {
+     "train_orders": 1297,
+     "test_orders": 361,
+     "test_rto": 101,
+     "roc_auc": 0.735,
+     "pr_auc": 0.518,
+     "brier": 0.1737,
+     "ece": 0.045,
+     "net_rupees_base_HYPOTHETICAL": 2642,
+     "fold": "train <2026-08-01 -> test 2026-08"
+    }
+   ],
+   "mean_roc_auc": 0.6907,
+   "mean_pr_auc": 0.4693,
+   "mean_brier": 0.184,
+   "mean_ece": 0.0563,
+   "mean_net_rupees_base_HYPOTHETICAL": 1095.3333
+  },
+  "history_quality_flag": {
+   "folds": [
+    {
+     "train_orders": 637,
+     "test_orders": 324,
+     "test_rto": 85,
+     "roc_auc": 0.614,
+     "pr_auc": 0.356,
+     "brier": 0.1948,
+     "ece": 0.061,
+     "net_rupees_base_HYPOTHETICAL": -552,
+     "fold": "train <2026-06-01 -> test 2026-06"
+    },
+    {
+     "train_orders": 961,
+     "test_orders": 336,
+     "test_rto": 101,
+     "roc_auc": 0.715,
+     "pr_auc": 0.521,
+     "brier": 0.186,
+     "ece": 0.055,
+     "net_rupees_base_HYPOTHETICAL": 1019,
+     "fold": "train <2026-07-01 -> test 2026-07"
+    },
+    {
+     "train_orders": 1297,
+     "test_orders": 361,
+     "test_rto": 101,
+     "roc_auc": 0.723,
+     "pr_auc": 0.503,
+     "brier": 0.1755,
+     "ece": 0.039,
+     "net_rupees_base_HYPOTHETICAL": 2280,
+     "fold": "train <2026-08-01 -> test 2026-08"
+    }
+   ],
+   "mean_roc_auc": 0.684,
+   "mean_pr_auc": 0.46,
+   "mean_brier": 0.1854,
+   "mean_ece": 0.0517,
+   "mean_net_rupees_base_HYPOTHETICAL": 915.6667
+  }
+ },
+ "decision_trail": [
+  "reported_history vs no_history: mean AUC +0.031, wins 3/3 folds, mean Brier -0.0055 -> switch to reported_history",
+  "history_quality_flag vs reported_history: mean AUC -0.007, wins 0/3 folds, mean Brier +0.0014 -> within noise / not better, keep reported_history"
+ ],
+ "selected_model": "reported_history",
+ "september_retrospective_holdout": {
+  "label": "retrospective temporal holdout (used during development), not an untouched test set",
+  "selected": {
+   "train_orders": 1658,
+   "test_orders": 329,
+   "test_rto": 86,
+   "roc_auc": 0.738,
+   "pr_auc": 0.534,
+   "brier": 0.1643,
+   "ece": 0.042,
+   "net_rupees_base_HYPOTHETICAL": 1387
+  },
+  "all_models_for_reference_not_used_for_selection": {
+   "no_history": {
+    "train_orders": 1658,
+    "test_orders": 329,
+    "test_rto": 86,
+    "roc_auc": 0.689,
+    "pr_auc": 0.5,
+    "brier": 0.1716,
+    "ece": 0.044,
+    "net_rupees_base_HYPOTHETICAL": 1452
+   },
+   "reported_history": {
+    "train_orders": 1658,
+    "test_orders": 329,
+    "test_rto": 86,
+    "roc_auc": 0.738,
+    "pr_auc": 0.534,
+    "brier": 0.1643,
+    "ece": 0.042,
+    "net_rupees_base_HYPOTHETICAL": 1387
+   },
+   "history_quality_flag": {
+    "train_orders": 1658,
+    "test_orders": 329,
+    "test_rto": 86,
+    "roc_auc": 0.726,
+    "pr_auc": 0.524,
+    "brier": 0.1663,
+    "ece": 0.038,
+    "net_rupees_base_HYPOTHETICAL": 1500
+   }
+  }
+ },
+ "future_work": "A stable Shopify customer ID (instead of phone) would make history_state far more reliable."
+}

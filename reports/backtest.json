@@ -1,0 +1,361 @@
+{
+  "labels": {
+    "[M]": "measured from the CSV",
+    "model": "model prediction",
+    "HYPOTHETICAL": "depends on assumed intervention rates (rules.csv) - simulated, not observed"
+  },
+  "data_cleaning": {
+    "rows_raw": 2018,
+    "exact_duplicates_removed": 30,
+    "unlabelled_removed": 1,
+    "rows_clean": 1987,
+    "zero_value_orders": 3,
+    "missing_pincode": 12,
+    "missing_city": 4,
+    "bad_phone": 17,
+    "num_items_mismatch": 0,
+    "prior_rto_gt_prior_orders": 4
+  },
+  "history_state_counts_all_rows": {
+    "REPORTED_FIRST_TIME": 1292,
+    "REPORTED_RETURNING": 427,
+    "UNKNOWN_OR_INCONSISTENT": 268
+  },
+  "train": {
+    "from": "2026-04-01",
+    "to": "2026-08-31",
+    "orders": 1658,
+    "rto_rate": 0.2889
+  },
+  "test": {
+    "from": "2026-09-01",
+    "to": "2026-09-30",
+    "orders": 329,
+    "rto_rate": 0.2614,
+    "rto_orders": 86,
+    "label": "retrospective temporal holdout (used during development), not an untouched test set"
+  },
+  "model_version": "model-e4bf8bb3/rules-d78ffe",
+  "model": {
+    "history_model": "reported_history",
+    "features": [
+      "pin_logit",
+      "first_time",
+      "prior_rto",
+      "prior_rto_rate",
+      "meta_first_time",
+      "single_item",
+      "address_score",
+      "name_fake",
+      "phone_invalid",
+      "value_k",
+      "night"
+    ],
+    "test_auc": 0.738,
+    "cv_auc_train_random_folds": 0.699,
+    "weights_standardised": {
+      "pin_logit": 0.346,
+      "first_time": 0.404,
+      "prior_rto": 0.585,
+      "prior_rto_rate": -0.107,
+      "meta_first_time": 0.085,
+      "single_item": 0.219,
+      "address_score": -0.451,
+      "name_fake": 0.092,
+      "phone_invalid": 0.099,
+      "value_k": 0.215,
+      "night": 0.033
+    },
+    "training_pin_encoding": "chronological expanding window (weekly blocks, earlier orders only)",
+    "september_metrics": {
+      "pr_auc_average_precision": 0.534,
+      "base_rate": 0.261,
+      "brier": 0.1643,
+      "ece_10bin": 0.042,
+      "brier_if_always_base_rate": 0.1931,
+      "majority_class_accuracy": 0.7386,
+      "majority_class_note": "Context only: always predicting 'delivered' is this accurate, so accuracy is not used to judge the model."
+    }
+  },
+  "calibration_test_by_quintile": [
+    {
+      "mean_pred": 0.096,
+      "actual": 0.106,
+      "n": 66
+    },
+    {
+      "mean_pred": 0.168,
+      "actual": 0.136,
+      "n": 66
+    },
+    {
+      "mean_pred": 0.233,
+      "actual": 0.185,
+      "n": 65
+    },
+    {
+      "mean_pred": 0.311,
+      "actual": 0.364,
+      "n": 66
+    },
+    {
+      "mean_pred": 0.516,
+      "actual": 0.515,
+      "n": 66
+    }
+  ],
+  "optimizer_diagnostic_thresholds_not_applied": {
+    "ship_below_risk": 0.3,
+    "confirm_below_risk": 0.3,
+    "nudge_below_risk": 0.825
+  },
+  "optimizer_train_cv_net_rupees": 14325,
+  "thresholds": {
+    "ship_below_risk": 0.4,
+    "confirm_below_risk": 0.6,
+    "nudge_below_risk": 0.875
+  },
+  "september": {
+    "our_rules": {
+      "rto_cost_avoided": 2557,
+      "prepaid_delivered_contribution": 128,
+      "lost_genuine": 1225,
+      "flow_costs": 73,
+      "net": 1387,
+      "counts": {
+        "Ship as-is": 272,
+        "Ship after confirmation": 55,
+        "Nudge to prepaid": 2
+      },
+      "rto_in_bucket": {
+        "Ship after confirmation": "28/55",
+        "Nudge to prepaid": "2/2",
+        "Ship as-is": "56/272"
+      },
+      "first_time_labelled_held_or_cancelled": 0,
+      "marketing_metric_acquisition_spend_on_held_first_time_rupees": 0,
+      "genuine_cancelled": 0
+    },
+    "ship_everything (Marketing)": {
+      "rto_cost_avoided": 0,
+      "prepaid_delivered_contribution": 0,
+      "lost_genuine": 0,
+      "flow_costs": 0,
+      "net": 0,
+      "counts": {
+        "Ship as-is": 329
+      },
+      "rto_in_bucket": {
+        "Ship as-is": "86/329"
+      },
+      "first_time_labelled_held_or_cancelled": 0,
+      "marketing_metric_acquisition_spend_on_held_first_time_rupees": 0,
+      "genuine_cancelled": 0
+    },
+    "ops_cancel_risky (Operations)": {
+      "rto_cost_avoided": 7962,
+      "prepaid_delivered_contribution": 0,
+      "lost_genuine": 24557,
+      "flow_costs": 0,
+      "net": -16595,
+      "counts": {
+        "Ship as-is": 233,
+        "Hold / cancel": 96
+      },
+      "rto_in_bucket": {
+        "Hold / cancel": "47/96",
+        "Ship as-is": "39/233"
+      },
+      "first_time_labelled_held_or_cancelled": 58,
+      "marketing_metric_acquisition_spend_on_held_first_time_rupees": 17400,
+      "genuine_cancelled": 49
+    }
+  },
+  "marketing_metric_note": "[M] count of first-time-labelled customers held/cancelled x Rs 300 CAC = acquisition spend already sunk on customers we then turn away. A Marketing cost-of-friction metric, NOT profit and NOT added to net.",
+  "september_estimated_scenarios": {
+    "conservative": {
+      "assumptions": {
+        "confirm_catches_rto_share": 0.35,
+        "confirm_genuine_loss_share": 0.12,
+        "prepaid_takeup_if_baseline_delivered": 0.15,
+        "prepaid_takeup_if_baseline_rto": 0.0
+      },
+      "label": "HYPOTHETICAL",
+      "our_rules_net": -117,
+      "our_rules_components": {
+        "rto_cost_avoided": 1779,
+        "prepaid_delivered_contribution": 0,
+        "lost_genuine": 1837,
+        "flow_costs": 59,
+        "net": -117
+      },
+      "ops_rule_net": -16595,
+      "ship_everything_net": 0
+    },
+    "base": {
+      "assumptions": {
+        "confirm_catches_rto_share": 0.5,
+        "confirm_genuine_loss_share": 0.08,
+        "prepaid_takeup_if_baseline_delivered": 0.25,
+        "prepaid_takeup_if_baseline_rto": 0.1
+      },
+      "label": "HYPOTHETICAL",
+      "our_rules_net": 1387,
+      "our_rules_components": {
+        "rto_cost_avoided": 2557,
+        "prepaid_delivered_contribution": 128,
+        "lost_genuine": 1225,
+        "flow_costs": 73,
+        "net": 1387
+      },
+      "ops_rule_net": -16595,
+      "ship_everything_net": 0
+    },
+    "optimistic": {
+      "assumptions": {
+        "confirm_catches_rto_share": 0.65,
+        "confirm_genuine_loss_share": 0.05,
+        "prepaid_takeup_if_baseline_delivered": 0.35,
+        "prepaid_takeup_if_baseline_rto": 0.2
+      },
+      "label": "HYPOTHETICAL",
+      "our_rules_net": 2728,
+      "our_rules_components": {
+        "rto_cost_avoided": 3324,
+        "prepaid_delivered_contribution": 256,
+        "lost_genuine": 765,
+        "flow_costs": 87,
+        "net": 2728
+      },
+      "ops_rule_net": -16595,
+      "ship_everything_net": 0
+    }
+  },
+  "hypothetical_sensitivity_not_base_case": [
+    {
+      "what": "IF a delivered first-time order were worth +Rs 300 future contribution (unvalidated; CAC is spend, not value)",
+      "our_rules": 955,
+      "ops_rule": -25595
+    }
+  ],
+  "september_measured": {
+    "note": "[M] Facts from the CSV only. 'Flagged' = routed to confirm/nudge/hold; NOT 'prevented' - what the intervention would have changed is HYPOTHETICAL.",
+    "orders": 329,
+    "rto_orders": 86,
+    "rto_cost_if_ship_all": 14568,
+    "by_action": {
+      "Ship as-is": {
+        "orders": 272,
+        "rto": 56,
+        "delivered": 216,
+        "rto_rate": 0.206,
+        "share_of_all_rto": 0.651
+      },
+      "Ship after confirmation": {
+        "orders": 55,
+        "rto": 28,
+        "delivered": 27,
+        "rto_rate": 0.509,
+        "share_of_all_rto": 0.326
+      },
+      "Nudge to prepaid": {
+        "orders": 2,
+        "rto": 2,
+        "delivered": 0,
+        "rto_rate": 1.0,
+        "share_of_all_rto": 0.023
+      },
+      "Hold / cancel": {
+        "orders": 0,
+        "rto": 0,
+        "delivered": 0,
+        "rto_rate": null,
+        "share_of_all_rto": 0.0
+      }
+    },
+    "flagged_vs_shipped_confusion": {
+      "flagged_and_rto": 30,
+      "flagged_but_delivered": 27,
+      "shipped_and_rto": 56,
+      "shipped_and_delivered": 216,
+      "precision": 0.526,
+      "recall": 0.349,
+      "f1": 0.42
+    },
+    "by_risk_cutoff": [
+      {
+        "risk_at_least": 0.4,
+        "orders_flagged": 52,
+        "rto_caught": 28,
+        "precision": 0.538,
+        "recall": 0.326
+      },
+      {
+        "risk_at_least": 0.6,
+        "orders_flagged": 15,
+        "rto_caught": 12,
+        "precision": 0.8,
+        "recall": 0.14
+      },
+      {
+        "risk_at_least": 0.875,
+        "orders_flagged": 1,
+        "rto_caught": 1,
+        "precision": 1.0,
+        "recall": 0.012
+      }
+    ],
+    "rto_cost_sitting_in_flagged_orders": 5082,
+    "first_time_labelled_flagged": 36,
+    "first_time_labelled_cancelled": 0,
+    "unknown_history_orders": 78,
+    "policy_vs_best_ev_disagreements": 161
+  },
+  "september_risk_buckets": [
+    {
+      "bucket": "0%\u201320%",
+      "orders": 138,
+      "rto": 17,
+      "mean_predicted": 0.135,
+      "actual_rto_rate": 0.123
+    },
+    {
+      "bucket": "20%\u201340%",
+      "orders": 139,
+      "rto": 41,
+      "mean_predicted": 0.286,
+      "actual_rto_rate": 0.295
+    },
+    {
+      "bucket": "40%\u201360%",
+      "orders": 37,
+      "rto": 16,
+      "mean_predicted": 0.487,
+      "actual_rto_rate": 0.432
+    },
+    {
+      "bucket": "60%\u201387.5%",
+      "orders": 14,
+      "rto": 11,
+      "mean_predicted": 0.697,
+      "actual_rto_rate": 0.786
+    },
+    {
+      "bucket": "87.5%+",
+      "orders": 1,
+      "rto": 1,
+      "mean_predicted": 0.93,
+      "actual_rto_rate": 1.0
+    }
+  ],
+  "calibration_chart": {
+    "svg": "reports/calibration.svg",
+    "png": null
+  },
+  "scale_to_brief": {
+    "cod_orders_per_month": 1650.0000000000002,
+    "net_per_cod_order": 4.2,
+    "monthly_net_at_1650_cod_orders": 6956,
+    "note": "HYPOTHETICAL PROJECTION: September base-case net per COD order x brief volume. One month; see walk-forward for month-to-month swings (incl. negative months)."
+  }
+}

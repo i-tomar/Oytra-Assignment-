@@ -1,0 +1,84 @@
+{
+ "a_parse_and_sort": {
+  "rows_matching_single_format_YYYY-MM-DD_HH:MM": "2018/2018",
+  "parse_failures": 0,
+  "order_id_vs_time_rank_correlation": 0.024,
+  "phones_prior_orders_decreasing_time_sorted": 204,
+  "phones_prior_orders_decreasing_if_sorted_by_order_id": 57,
+  "phones_prior_rto_decreasing_time_sorted": 75,
+  "phones_prior_rto_decreasing_excluding_same_minute_ties": 75,
+  "phones_prior_rto_decreasing_grouped_by_raw_phone_string": 74,
+  "same_phone_same_minute_order_pairs": 3,
+  "reading": "Every timestamp parses in one format; sorting is by the parsed time with order_id as a stable tie-break. Order IDs are not in time order, so sorting by ID would be wrong, not right. Not our bug."
+ },
+ "b_shared_phone": {
+  "phones_with_2plus_orders": 364,
+  "with_more_than_one_name": 6,
+  "with_more_than_one_city": 5,
+  "with_more_than_one_pincode": 349,
+  "name_city_pairs_seen_on_more_than_one_phone": 122,
+  "reading": "Same phone almost always carries the same name and city, so these are the same person; the address/pincode varies. Name+city pairs on several phones are mostly common names (e.g. 'Priya Sharma'), so name is not a usable key."
+ },
+ "c_counter_reset": {
+  "drops_in_prior_orders": 215,
+  "drops_to_zero": 182,
+  "drops_to_nonzero": 33,
+  "reading": "Most drops land on 0, but 0 is also 75% of all values, so a 'reset' can't be told apart from a random draw; drops between non-zero values also occur."
+ },
+ "d_source_field": {
+  "prior_orders_values_when_above_0": {
+   "1": 102,
+   "2": 98,
+   "3": 99,
+   "4": 93,
+   "5": 100
+  },
+  "phones_decreasing_observed_vs_if_values_were_shuffled_randomly": {
+   "prior_orders": [
+    204,
+    173.4,
+    [
+     159.975,
+     189.05
+    ]
+   ],
+   "prior_rto": [
+    75,
+    70.4,
+    [
+     59.0,
+     80.025
+    ]
+   ]
+  },
+  "reported_first_time_share": {
+   "single_order_phones": 0.996,
+   "repeat_phones_first_appearance": 0.495,
+   "repeat_phones_later_appearances": 0.402
+  },
+  "reading": "The non-zero counts are flat across 1\u20135 (~100 each), and the ordering within a phone is about as inconsistent as random shuffling. Yet single-order phones say 'first-time' 99.6% of the time. So the field knows *whether* someone is a repeat customer but not their sequence: it is produced per order by the source (sample generator or export), not accumulated per customer."
+ },
+ "e_order_id_sequence": {
+  "by_order_id": {
+   "steps": 507,
+   "negative_steps": 61,
+   "reported_count_at_least_position": 0.932
+  },
+  "by_timestamp": {
+   "steps": 507,
+   "negative_steps": 215,
+   "reported_count_at_least_position": 0.726
+  },
+  "same_phone_order_id_increases_with_time_share": 0.535,
+  "september_orders_whose_phone_has_a_lower_id_order_timestamped_later": 7,
+  "september_orders": 329,
+  "reading": "Sorted by order_id the counts mostly go up; sorted by timestamp they go up and down at random. Within a phone, a later timestamp has a higher order_id only about half the time. So the source built the history in order_id order, and the timestamps do not follow that order."
+ },
+ "verdict": "Source-data issue. Not our parsing or sorting (one timestamp format, 0 parse failures, stable time sort), not one phone shared by different people (same name/city on almost every repeat phone), and not a counter reset. The counts were accumulated in order_id order, but order_id and order_datetime disagree, so in time order they look scrambled. We keep time order (the backtest must be time-based) and treat the fields as reported signals, not exact counts. Because the order_id sequence may include orders dated later, the no-history model stays the worst case.",
+ "how_to_identify_first_time_customers": [
+  "At order time, look up the Shopify customer ID (customer.id / orders_count) from the order webhook; it is maintained by Shopify, not re-typed.",
+  "Fallback key: normalised phone (last 10 digits) + email, matched against OYTRA's own order table including orders still in transit.",
+  "Count prior RTOs from courier final statuses already received, never from the order payload.",
+  "Log the key used and the counts with each decision so they can be audited later."
+ ]
+}

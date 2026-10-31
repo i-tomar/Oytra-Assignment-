@@ -1,0 +1,254 @@
+{
+ "note": "Month-by-month walk-forward, Jun-Sep. Nothing is re-tuned after seeing a test month.\nTable A - STABILITY of the fixed policy: production history model + fixed 40/60/87.5 thresholds, model refit on\n  all orders before the month. The thresholds and the history-model choice were made using Apr-Aug, so Jun-Aug\n  are NOT independent tests; this only shows how stable the fixed policy is month to month.\nTable B - GENUINE chronological model+policy evaluation: for each month, using ONLY earlier orders,\n  (1) pick the history model with the same rule as oytra.history_variants (inner chronological folds),\n  (2) pick thresholds with the same rupee optimiser on those inner out-of-time predictions (base assumptions),\n  then apply once to the month.\nTable C - argmax-EV comparison (comparison only, never deployed): per order pick the action with the best\n  base-case expected Rs, same guardrails (precedence steps 2-5), and an Ops friction cap on confirm+nudge share.\nAll Rs figures are HYPOTHETICAL (depend on assumed intervention rates); negative months are shown.\nRun: python -m oytra.walkforward -> reports/walkforward.{json,md}",
+ "production_history_model": "reported_history",
+ "A_fixed_policy_stability": [
+  {
+   "month": "Jun",
+   "train_orders": 637,
+   "test_orders": 324,
+   "test_rto": 85,
+   "roc_auc": 0.615,
+   "brier": 0.1945,
+   "flagged": 62,
+   "flagged_and_rto": 23,
+   "friction_share": 0.191,
+   "net_HYPOTHETICAL": {
+    "conservative": -2511,
+    "base": -556,
+    "optimistic": 1023
+   }
+  },
+  {
+   "month": "Jul",
+   "train_orders": 961,
+   "test_orders": 336,
+   "test_rto": 101,
+   "roc_auc": 0.722,
+   "brier": 0.1838,
+   "flagged": 61,
+   "flagged_and_rto": 34,
+   "friction_share": 0.182,
+   "net_HYPOTHETICAL": {
+    "conservative": -576,
+    "base": 1200,
+    "optimistic": 2727
+   }
+  },
+  {
+   "month": "Aug",
+   "train_orders": 1297,
+   "test_orders": 361,
+   "test_rto": 101,
+   "roc_auc": 0.735,
+   "brier": 0.1737,
+   "flagged": 81,
+   "flagged_and_rto": 46,
+   "friction_share": 0.224,
+   "net_HYPOTHETICAL": {
+    "conservative": 265,
+    "base": 2642,
+    "optimistic": 4795
+   }
+  },
+  {
+   "month": "Sep",
+   "train_orders": 1658,
+   "test_orders": 329,
+   "test_rto": 86,
+   "roc_auc": 0.738,
+   "brier": 0.1643,
+   "flagged": 57,
+   "flagged_and_rto": 30,
+   "friction_share": 0.173,
+   "net_HYPOTHETICAL": {
+    "conservative": -117,
+    "base": 1387,
+    "optimistic": 2728
+   }
+  }
+ ],
+ "B_chronological_model_and_policy": [
+  {
+   "month": "Jun",
+   "train_orders": 637,
+   "inner_validation_months": [
+    "2026-05"
+   ],
+   "history_model_chosen": "reported_history",
+   "thresholds_chosen": [
+    0.275,
+    0.275,
+    0.85
+   ],
+   "roc_auc": 0.615,
+   "brier": 0.1945,
+   "flagged": 123,
+   "friction_share": 0.377,
+   "net_HYPOTHETICAL": {
+    "conservative": -3713,
+    "base": 435,
+    "optimistic": 3719
+   }
+  },
+  {
+   "month": "Jul",
+   "train_orders": 961,
+   "inner_validation_months": [
+    "2026-05",
+    "2026-06"
+   ],
+   "history_model_chosen": "reported_history",
+   "thresholds_chosen": [
+    0.3,
+    0.3,
+    0.875
+   ],
+   "roc_auc": 0.722,
+   "brier": 0.1838,
+   "flagged": 105,
+   "friction_share": 0.312,
+   "net_HYPOTHETICAL": {
+    "conservative": -1073,
+    "base": 3463,
+    "optimistic": 7328
+   }
+  },
+  {
+   "month": "Aug",
+   "train_orders": 1297,
+   "inner_validation_months": [
+    "2026-05",
+    "2026-06",
+    "2026-07"
+   ],
+   "history_model_chosen": "reported_history",
+   "thresholds_chosen": [
+    0.3,
+    0.3,
+    0.875
+   ],
+   "roc_auc": 0.735,
+   "brier": 0.1737,
+   "flagged": 132,
+   "friction_share": 0.366,
+   "net_HYPOTHETICAL": {
+    "conservative": -1405,
+    "base": 3012,
+    "optimistic": 6750
+   }
+  },
+  {
+   "month": "Sep",
+   "train_orders": 1658,
+   "inner_validation_months": [
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08"
+   ],
+   "history_model_chosen": "reported_history",
+   "thresholds_chosen": [
+    0.3,
+    0.3,
+    0.875
+   ],
+   "roc_auc": 0.738,
+   "brier": 0.1643,
+   "flagged": 107,
+   "friction_share": 0.325,
+   "net_HYPOTHETICAL": {
+    "conservative": -816,
+    "base": 2904,
+    "optimistic": 6085
+   }
+  }
+ ],
+ "C_argmax_vs_bands": [
+  {
+   "month": "Jun",
+   "bands_net": {
+    "conservative": -2511,
+    "base": -556,
+    "optimistic": 1023
+   },
+   "argmax_net": {
+    "conservative": -2394,
+    "base": 70,
+    "optimistic": 2040
+   },
+   "bands_friction_share": 0.191,
+   "argmax_friction_share": 0.25,
+   "argmax_counts": {
+    "SHIP": 243,
+    "CONFIRM": 46,
+    "NUDGE": 35
+   }
+  },
+  {
+   "month": "Jul",
+   "bands_net": {
+    "conservative": -576,
+    "base": 1200,
+    "optimistic": 2727
+   },
+   "argmax_net": {
+    "conservative": -301,
+    "base": 2689,
+    "optimistic": 5275
+   },
+   "bands_friction_share": 0.182,
+   "argmax_friction_share": 0.25,
+   "argmax_counts": {
+    "SHIP": 250,
+    "CONFIRM": 47,
+    "NUDGE": 37,
+    "HOLD": 2
+   }
+  },
+  {
+   "month": "Aug",
+   "bands_net": {
+    "conservative": 265,
+    "base": 2642,
+    "optimistic": 4795
+   },
+   "argmax_net": {
+    "conservative": -209,
+    "base": 2766,
+    "optimistic": 5408
+   },
+   "bands_friction_share": 0.224,
+   "argmax_friction_share": 0.249,
+   "argmax_counts": {
+    "SHIP": 269,
+    "CONFIRM": 60,
+    "NUDGE": 30,
+    "HOLD": 2
+   }
+  },
+  {
+   "month": "Sep",
+   "bands_net": {
+    "conservative": -117,
+    "base": 1387,
+    "optimistic": 2728
+   },
+   "argmax_net": {
+    "conservative": 59,
+    "base": 2266,
+    "optimistic": 4207
+   },
+   "bands_friction_share": 0.173,
+   "argmax_friction_share": 0.249,
+   "argmax_counts": {
+    "SHIP": 246,
+    "CONFIRM": 61,
+    "NUDGE": 21,
+    "HOLD": 1
+   }
+  }
+ ],
+ "C_ops_max_friction_share": 0.25,
+ "C_verdict": "argmax-EV >= bands in 11/12 month x scenario cells; Jun-Sep totals argmax vs bands: conservative -2,845 vs -2,939, base 7,791 vs 4,673, optimistic 16,930 vs 11,273; friction cap 25% respected. Pre-stated bar (better in every cell) not met: loses Aug conservative. Argmax is ahead on totals, but it decides with the same HYPOTHETICAL rates it is scored on and always runs at the friction cap, so its edge is assumption-driven. Bands kept; argmax stays a comparison and pilot candidate.",
+ "C_robustly_better": false
+}

@@ -1,0 +1,48 @@
+{
+ "latest_day_in_data": "2026-09-30",
+ "orders_latest_day": 9,
+ "counts": {
+  "Ship as-is": 6,
+  "Ship after confirmation": 3,
+  "Nudge to prepaid": 0,
+  "Hold / cancel": 0
+ },
+ "measured": {
+  "flagged": 57,
+  "rto_flagged": 30,
+  "rto_all": 86,
+  "flagged_delivered": 27,
+  "rto_rs_flagged": 5082,
+  "yflag": 3,
+  "yrto_flag": 2
+ },
+ "estimated_latest_day_from_scores": {
+  "saved": 112,
+  "prepaid": 0,
+  "lost": 38,
+  "costs": 3,
+  "net": 70
+ },
+ "estimated_latest_day_actual_outcomes_base": {
+  "saved": 169,
+  "prepaid": 0,
+  "lost": 32,
+  "costs": 3,
+  "net": 134
+ },
+ "september_estimated_net_from_scores": 1441,
+ "september_estimated_net_actual_outcomes": {
+  "conservative": -117,
+  "base": 1387,
+  "optimistic": 2728
+ },
+ "september_model_quality": {
+  "roc_auc": 0.738,
+  "pr_auc_average_precision": 0.534,
+  "base_rate": 0.261,
+  "brier": 0.1643,
+  "ece_10bin": 0.042,
+  "brier_if_always_base_rate": 0.1931,
+  "majority_class_accuracy": 0.7386
+ }
+}

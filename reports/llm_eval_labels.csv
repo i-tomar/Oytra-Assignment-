@@ -1,0 +1,61 @@
+case_id,task,input,draft_label,rules_output,llm_output,llm_json_valid,latency_ms,human_label,review_status
+J01,name_address,"Meera Kulkarni | Flat 7B, Shanti Residency, Karve Road, Kothrud | Pune 411038",fake=False;complete,fake=False;complete,fake=False;complete,True,588,,DRAFT — needs Ishan's human review
+J02,name_address,"Arjun Mehta | House 22, Sector 15, near Gurudwara | Faridabad 121007",fake=False;complete,fake=False;complete,fake=False;complete,True,554,,DRAFT — needs Ishan's human review
+J03,name_address,"Sana Sheikh | Jama Masjid ke peeche, gali no 4 | Bhopal 462001",fake=False;landmark_only,fake=False;complete,fake=False;landmark_only,True,565,,DRAFT — needs Ishan's human review
+J04,name_address,Rohit Verma | Hanuman mandir ke saamne wali gali | Kanpur 208001,fake=False;landmark_only,fake=False;landmark_only,fake=False;landmark_only,True,749,,DRAFT — needs Ishan's human review
+J05,name_address,test | test | Delhi 110001,fake=True;unusable,fake=True;unusable,fake=True;unusable,True,444,,DRAFT — needs Ishan's human review
+J06,name_address,"asdfgh | Plot 9, MIDC Road, Ambad | Nashik 422010",fake=True;complete,fake=False;complete,fake=True;complete,True,851,,DRAFT — needs Ishan's human review
+J07,name_address,Kavya Nair | call me | Kochi 682001,fake=False;unusable,fake=False;unusable,fake=False;unusable,True,560,,DRAFT — needs Ishan's human review
+J08,name_address,Imran Qureshi | Lucknow | Lucknow 226001,fake=False;unusable,fake=False;unusable,fake=False;vague,True,616,,DRAFT — needs Ishan's human review
+J09,name_address,Pooja Rathore | near bus stand | Ajmer 305001,fake=False;vague,fake=False;vague,fake=False;landmark_only,True,697,,DRAFT — needs Ishan's human review
+J10,name_address,"Dinesh Patel | B-304, Shivalik Heights, Satellite Road | Ahmedabad 380015",fake=False;complete,fake=False;complete,fake=False;complete,True,531,,DRAFT — needs Ishan's human review
+J11,name_address,xyz | . | Patna 800001,fake=True;unusable,fake=True;unusable,fake=True;unusable,True,633,,DRAFT — needs Ishan's human review
+J12,name_address,"Nikhil Joshi | Govt school ke paas, ward 6 | Sagar 470001",fake=False;landmark_only,fake=False;complete,fake=False;landmark_only,True,617,,DRAFT — needs Ishan's human review
+J13,name_address,"Ananya Ghosh | 12/3 Gariahat Road, Ballygunge | Kolkata 700019",fake=False;complete,fake=False;complete,fake=False;complete,True,585,,DRAFT — needs Ishan's human review
+J14,name_address,aaaa | home | Indore 452001,fake=True;unusable,fake=True;unusable,fake=True;vague,True,633,,DRAFT — needs Ishan's human review
+J15,name_address,"Harpreet Kaur | Village Rampur, post office Khanna | Ludhiana 141401",fake=False;vague,fake=False;vague,fake=False;vague,True,552,,DRAFT — needs Ishan's human review
+J16,name_address,"Sunita Devi | SBI bank ke bagal mein, pehli manzil | Darbhanga 846004",fake=False;landmark_only,fake=False;landmark_only,fake=False;landmark_only,True,531,,DRAFT — needs Ishan's human review
+J17,name_address,"Customer | Room 5, Sai Chawl, Kurla West | Mumbai 400070",fake=True;complete,fake=True;complete,fake=False;complete,True,464,,DRAFT — needs Ishan's human review
+J18,name_address,Vikram Singh | Petrol pump crossing | Kota 324001,fake=False;landmark_only,fake=False;landmark_only,fake=False;landmark_only,True,713,,DRAFT — needs Ishan's human review
+J19,name_address,"Lakshmi Iyer | No. 45, 2nd Cross, Indiranagar | Bengaluru 560038",fake=False;complete,fake=False;complete,fake=False;complete,True,426,,DRAFT — needs Ishan's human review
+J20,name_address,Rahul | chowk | Nagaon 782001,fake=False;unusable,fake=False;unusable,fake=False;vague,True,521,,DRAFT — needs Ishan's human review
+J21,name_address,"Fatima Khan | Opp. City Hospital, Station Road | Gorakhpur 273001",fake=False;landmark_only,fake=False;landmark_only,fake=False;landmark_only,True,456,,DRAFT — needs Ishan's human review
+J22,name_address,Na | NA | Jaipur 302001,fake=True;unusable,fake=True;unusable,fake=True;unusable,True,577,,DRAFT — needs Ishan's human review
+J23,name_address,Amit Saxena | Mohalla Qazi tola | Bareilly 243001,fake=False;vague,fake=False;vague,fake=False;vague,True,597,,DRAFT — needs Ishan's human review
+J24,name_address,"Priyanka Das | Flat 2C, Tower 3, Brigade Gardens, JP Nagar | Bengaluru 560078",fake=False;complete,fake=False;complete,fake=False;complete,True,546,,DRAFT — needs Ishan's human review
+J25,name_address,dummy user | Sector 62 Noida | Noida 201301,fake=True;vague,fake=False;vague,fake=False;complete,True,562,,DRAFT — needs Ishan's human review
+J26,name_address,"Gaurav Tiwari | Gaurav Tiwari s/o Ram Tiwari, ghar no 118, gali 3, Shastri Nagar | Madhubani 847211",fake=False;complete,fake=False;complete,fake=False;complete,True,485,,DRAFT — needs Ishan's human review
+J27,name_address,Neha Bansal | Kali mata mandir | Guwahati 781001,fake=False;landmark_only,fake=False;landmark_only,fake=False;landmark_only,True,592,,DRAFT — needs Ishan's human review
+J28,name_address,qwerty | 123 | Chennai 600001,fake=True;unusable,fake=True;unusable,fake=True;vague,True,570,,DRAFT — needs Ishan's human review
+J29,name_address,"Mohd Arif | Behind Water Tank, Ward 12 | Lucknow 226003",fake=False;landmark_only,fake=False;complete,fake=False;landmark_only,True,614,,DRAFT — needs Ishan's human review
+J30,name_address,"Shreya Kapoor | D-14, Green Park Extension | Delhi 110016",fake=False;complete,fake=False;complete,fake=False;complete,True,431,,DRAFT — needs Ishan's human review
+I01,intent,haan ji bhej do,yes,yes,yes,True,422,,DRAFT — needs Ishan's human review
+I02,intent,YES,yes,yes,yes,True,501,,DRAFT — needs Ishan's human review
+I03,intent,ok confirm,yes,yes,yes,True,459,,DRAFT — needs Ishan's human review
+I04,intent,theek hai,yes,yes,yes,True,496,,DRAFT — needs Ishan's human review
+I05,intent,nahi chahiye,no,no,no,True,475,,DRAFT — needs Ishan's human review
+I06,intent,cancel kar do,no,no,unclear,True,491,,DRAFT — needs Ishan's human review
+I07,intent,no I ordered by mistake,no,no,no,True,862,,DRAFT — needs Ishan's human review
+I08,intent,haan nahi chahiye ab,no,no,no,True,517,,DRAFT — needs Ishan's human review
+I09,intent,upi se pay karunga,pay_online,pay_online,pay_online,True,387,,DRAFT — needs Ishan's human review
+I10,intent,send payment link,pay_online,pay_online,pay_online,True,391,,DRAFT — needs Ishan's human review
+I11,intent,1,unclear,unclear,unclear,True,345,,DRAFT — needs Ishan's human review
+I12,intent,online pay kar deta hoon,pay_online,pay_online,pay_online,True,313,,DRAFT — needs Ishan's human review
+I13,intent,keep COD,keep_cod,keep_cod,keep_cod,True,409,,DRAFT — needs Ishan's human review
+I14,intent,cod rakho,keep_cod,keep_cod,keep_cod,True,321,,DRAFT — needs Ishan's human review
+I15,intent,cash on delivery hi theek hai,keep_cod,keep_cod,keep_cod,True,393,,DRAFT — needs Ishan's human review
+I16,intent,nagad dunga delivery pe,keep_cod,keep_cod,keep_cod,True,314,,DRAFT — needs Ishan's human review
+I17,intent,address galat hai,address_change,address_change,address_change,True,378,,DRAFT — needs Ishan's human review
+I18,intent,pata change karna hai,address_change,address_change,address_change,True,371,,DRAFT — needs Ishan's human review
+I19,intent,please change my address to flat 4,address_change,address_change,address_change,True,343,,DRAFT — needs Ishan's human review
+I20,intent,kab tak aayega?,question_eta,question_eta,question_eta,True,485,,DRAFT — needs Ishan's human review
+I21,intent,when will it be delivered,question_eta,question_eta,question_eta,True,269,,DRAFT — needs Ishan's human review
+I22,intent,kitne din lagenge,question_eta,question_eta,question_eta,True,329,,DRAFT — needs Ishan's human review
+I23,intent,🙏,unclear,unclear,unclear,True,564,,DRAFT — needs Ishan's human review
+I24,intent,hmm,unclear,unclear,unclear,True,426,,DRAFT — needs Ishan's human review
+I25,intent,who is this,unclear,unclear,unclear,True,407,,DRAFT — needs Ishan's human review
+I26,intent,ji,yes,yes,yes,True,392,,DRAFT — needs Ishan's human review
+I27,intent,"online nahi, cod hi chahiye",keep_cod,keep_cod,keep_cod,True,344,,DRAFT — needs Ishan's human review
+I28,intent,mat bhejo,no,no,no,True,416,,DRAFT — needs Ishan's human review
+I29,intent,haan bhai pakka,yes,yes,yes,True,385,,DRAFT — needs Ishan's human review
+I30,intent,paise online bhej diye,pay_online,pay_online,pay_online,True,451,,DRAFT — needs Ishan's human review

@@ -1,0 +1,20 @@
+{
+ "1_encoder_fit_rows_latest_date": "2026-08-31 20:50:00",
+ "1_encoder_fit_rows_before_sep": true,
+ "2_sept_scores_unchanged_when_sept_labels_flipped": true,
+ "3_training_rows_whose_own_label_moves_their_pin_feature (of 20)": 0,
+ "3_earlier_rows_moved_by_a_later_label (20 flips)": 0,
+ "3_note": "without out-of-time encoding, training rows would see their own label: in-sample vs chronological pin feature correlation with RTO 0.576 vs 0.159",
+ "4_cv_fold0_predictions_unchanged_when_fold0_labels_flipped": true,
+ "4_cv_folds": "random 5-fold inside Apr-Aug (not time-ordered); used only to choose thresholds",
+ "5_label_lag": {
+  "lag_days": 14,
+  "train_rows_all": 1658,
+  "train_rows_outcome_known_by_1_sep": 1491,
+  "sept_auc_all_train": 0.738,
+  "sept_auc_lagged_train": 0.738,
+  "sept_net_all_train": 1387,
+  "sept_net_lagged_train": 1522
+ },
+ "verdict": "No September outcome reaches September scores; training rows use a chronological (earlier-orders-only) pincode encoding."
+}

@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset='utf-8'><style>@page{size:A4;margin:13mm 15mm} body{font-family:Georgia,'Times New Roman',serif;font-size:10.2pt;line-height:1.36;color:#111}
+h3{font-family:Helvetica,Arial,sans-serif;font-size:11pt;margin:10px 0 3px;color:#1a3d6d} ul,ol{margin:3px 0 3px 18px;padding:0} li{margin:1px 0}
+p{margin:4px 0} table{border-collapse:collapse;font-size:9.3pt;margin:4px 0;width:100%} td,th{border:1px solid #bbb;padding:2px 6px;text-align:left}
+th{background:#eef2f7}</style></head><body><h2>What I would do about risky COD orders</h2>
+<p><strong>To:</strong> Founder, OYTRA · <strong>From:</strong> Ishan Singh Tomar · <strong>Date:</strong> 31 October 2026 · <strong>Subject:</strong> COD risk decisions and expected financial impact</p>
+<h3>Bottom line</h3>
+<p>I wouldn't automatically cancel risky COD orders. The data has patterns Operations can use, but a risky order isn't always a fake one. My plan is to ship low-risk orders, confirm the ones that need more information, offer a prepaid option to a smaller group, and keep cancellation as a last step with clear rules. In the September simulation this comes out at a base-case benefit of <strong>₹1,387</strong> compared with shipping every order as COD, with a range of <strong>−₹117 to +₹2,728</strong>. These figures are HYPOTHETICAL, because the data can't tell us how customers react to a WhatsApp message or a discount. June is negative under the fixed policy and the conservative case is negative in 3 of the 4 months, so I'd run a pilot before treating any of this as real money.</p>
+<h3>What I found in the order data</h3>
+<ul>
+<li>Address quality mattered more than language. The 183 orders with unusable addresses had 61.7% RTO, compared with 23.6% for the 1,413 orders with complete addresses. Hinglish landmark addresses sat at 31.0%, so I check whether an address is usable and don't penalise Hinglish.</li>
+<li>Fake-looking names were a warning sign, but not enough to cancel on. The 44 orders with names like "Test Order", "qwerty" or "asdf" had 63.6% RTO, compared with 27.6% for everyone else. This is below the illustrative 64.8% break-even for a ₹649 order, although the actual cancellation threshold depends on the individual order value.</li>
+<li>Pincode history is usually too thin to use on its own. There are 1,066 pincodes across 1,987 labelled orders; the median pincode has one order and only 30 have five or more. States do differ (Bihar 53.8%, Maharashtra 18.2%), so I pull small pincodes towards their state's rate rather than blocking areas.</li>
+<li>Basket size doesn't follow a simple pattern. Four-item orders had 36.4% RTO (107 orders) and two-item orders 25.0% (633). Adding product flags raised September AUC from 0.738 to 0.747, but the estimated net fell from ₹1,387 to ₹1,289 and the interval on the AUC change crossed zero, so products never decide whether an order ships.</li>
+</ul>
+<p>Data: 2,018 raw rows. After removing 30 exact duplicates and one order still in transit, I had 1,987 labelled COD orders (Apr–Sep). The brief's AOV is ₹649, while the data's mean is ₹919.96 (median ₹748). I use each order's own value and keep ₹649 for examples based on the brief.</p>
+<h3>The rules and what they would have done to September</h3>
+<p>The bands stay at <strong>40% / 60% / 87.5%</strong> predicted RTO risk (ship / confirm / prepaid nudge / hold). They are policy settings rather than universal break-evens, and I picked the 60% split by hand to leave room for a prepaid test. A fake name or unusable address always goes to WhatsApp confirmation so we can collect the right details, and buyers labelled first-time or with unknown history are never cancelled on score alone. The model uses the reported customer-history fields because that version won chronological validation inside April–August. Those fields aren't a verified identity, though.</p>
+<table>
+<thead>
+<tr>
+<th>September action</th>
+<th>Orders</th>
+<th>Historical RTOs in group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ship as-is</td>
+<td>272</td>
+<td>56</td>
+</tr>
+<tr>
+<td>WhatsApp confirmation</td>
+<td>55</td>
+<td>28</td>
+</tr>
+<tr>
+<td>Prepaid nudge</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hold / cancel</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>57 orders were flagged and 30 of them were RTOs, out of 86 RTOs in total (precision 53%, recall 35%). Those 57 held ₹5,082 of the ₹14,568 September RTO cost. These are flagged orders; the data can't show how many RTOs would really have been avoided. Model quality: ROC-AUC 0.738, PR-AUC 0.534, Brier 0.1643 (0.1931 if you always predict the average). One caveat: on September alone, the no-history model would have scored HYPOTHETICAL ₹1,452 at a lower AUC (0.689). I didn't switch after seeing September.</p>
+<h3>The money, and Operations vs Marketing</h3>
+<p>Using the brief's numbers, one RTO costs <strong>₹169.40</strong> (₹65 + ₹65 + ₹25 + an expected ₹14.40 for damage). A delivered order contributes 62% of its value minus ₹90, which is ₹312.38 at ₹649 and ₹480.38 at ₹919.96. That means <strong>cancelling only beats shipping above 64.8% risk</strong> (73.9% for a ₹920 order). The ₹300 CAC has already been spent, so I don't count it as profit on the current order, and I don't count any hypothetical future customer value either.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario (HYPOTHETICAL)</th>
+<th>Jun</th>
+<th>Jul</th>
+<th>Aug</th>
+<th>Sep</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conservative</td>
+<td>−₹2,511</td>
+<td>−₹576</td>
+<td>+₹265</td>
+<td>−₹117</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>−₹556</td>
+<td>+₹1,200</td>
+<td>+₹2,642</td>
+<td>+₹1,387</td>
+</tr>
+<tr>
+<td>Optimistic</td>
+<td>+₹1,023</td>
+<td>+₹2,727</td>
+<td>+₹4,795</td>
+<td>+₹2,728</td>
+</tr>
+</tbody>
+</table>
+<p>In the base case, confirmation stops 50% of would-be RTOs and loses 8% of genuine buyers. Prepaid take-up is 25% for orders that would have been delivered and 10% for would-be RTOs. None of these rates is measured. The 4% prepaid RTO rate comes from the brief. I chose the thresholds on April–August data, so June to August are stability checks and not independent tests. A stricter chronological test, which re-selects the model and thresholds using only earlier months, gives base-case estimates of +₹435 in June, +₹3,463 in July, +₹3,012 in August and +₹2,904 in September. However, this approach sends 31–38% of orders through confirmation or a prepaid nudge, exceeding the assumed 25% Operations capacity. These results are therefore diagnostic estimates, not an immediately deployable policy.</p>
+<p><strong>Operations' view.</strong> I simulated it as holding any order at ≥38% risk, pincode RTO ≥40%, or with a fake name or unusable address. That's my reading; Ops didn't give me a threshold. It holds 96 September orders, 47 RTOs and 49 delivered, for <b style="white-space:nowrap">−₹16,595</b>. It also turns away 58 first-time-labelled buyers. For Marketing that's an illustrative ₹17,400 acquisition-spend proxy (58 × ₹300). The money is already spent, so it isn't a measured extra loss and it isn't in the net. <strong>Marketing's view</strong> is to ship everything. That's the ₹0 baseline, and it keeps all ₹14,568 of RTO cost. My rules sit between the two: no first-time acquisition spend turned away (₹0) and no cancellation on score alone.</p>
+<h3>What could go wrong, and how we'd notice</h3>
+<ul>
+<li>The behaviour assumptions could be wrong. In the pilot I'd log confirmation replies, no-replies, prepaid take-up and cancellations by risk band, then put the measured rates into <code>config/rules.csv</code> in place of my guesses.</li>
+<li>The model could drift. The dashboard already shows the daily ₹ trend and a predicted-vs-actual calibration chart. I'd add a weekly predicted-vs-actual RTO check with an alert, and retrain monthly.</li>
+<li>WhatsApp could fail or annoy customers. In the mock, no reply after a reminder goes to a manual Ops call and is never auto-cancelled. "Keep COD" replies are honoured, duplicate payment webhooks are ignored, and a payment that arrives after a COD fallback is flagged for refund review. The thing to watch is the Ops queue against the 25% capacity.</li>
+<li>The data has gaps. Phone isn't a reliable customer ID and the reported history is inconsistent (268 rows are unknown or inconsistent). A new order sent without history fields now goes to unknown history instead of first-time; I fixed that default and added a regression test. The pincode encoder still uses earlier outcomes with no maturity lag. A retrain with a 14-day lag gave the same September AUC, but a proper lag is needed before production.</li>
+<li>The LLM could misread text. It's optional and off by default. On 60 synthetic cases it agreed with my draft labels less often than the rules did (23 vs 25 of 30), and I still need to review those labels myself.</li>
+</ul>
+<h3>Next two weeks</h3>
+<ol>
+<li>Connect <strong>Shopify customer IDs</strong> and courier final statuses so customer history comes from real records.</li>
+<li>Run a 2–4 week <strong>pilot</strong> of confirmation and ₹30 / ₹50 / ₹75 prepaid offers to measure the two take-up rates, with any cancellation reviewed by a person.</li>
+<li>Ask for house number and landmark at checkout, since unusable addresses came back 61.7% of the time.</li>
+</ol></body></html>

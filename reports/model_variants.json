@@ -1,0 +1,93 @@
+{
+ "history_audit": {
+  "phones_with_more_than_one_order": 364,
+  "orders_on_those_phones": 871,
+  "reported_prior_orders_below_orders_visible_in_file": 238,
+  "reported_first_time_but_earlier_order_in_file": 203,
+  "phones_where_reported_prior_orders_goes_down": 204,
+  "later_orders_after_an_rto_in_file": 139,
+  "   of_which_report_prior_rto_above_0": 27,
+  "rows_prior_rto_gt_prior_orders": 4,
+  "   of_which_rto": 4,
+  "rto_rate_by_reported_prior_rto_when_file_shows_no_history": {
+   "0": "405/1420",
+   "1": "16/47",
+   "2": "13/14"
+  },
+  "rto_rate_after_previous_order_in_file": {
+   "previous_delivered": 0.245,
+   "previous_rto_known": 0.295
+  },
+  "outcome_lag_days_used": 14
+ },
+ "variants": {
+  "production (reported history)": {
+   "test_auc": 0.738,
+   "cv_auc_train": 0.699,
+   "brier": 0.1643,
+   "top_quintile_pred_vs_actual": [
+    0.516,
+    0.515
+   ],
+   "september_net_rupees_base_case": 1387
+  },
+  "no customer history": {
+   "test_auc": 0.689,
+   "cv_auc_train": 0.662,
+   "brier": 0.1716,
+   "top_quintile_pred_vs_actual": [
+    0.496,
+    0.53
+   ],
+   "september_net_rupees_base_case": 1452,
+   "test_auc_change_95pct_ci": [
+    -0.084,
+    -0.016
+   ]
+  },
+  "history rebuilt from this file only": {
+   "test_auc": 0.694,
+   "cv_auc_train": 0.659,
+   "brier": 0.1715,
+   "top_quintile_pred_vs_actual": [
+    0.492,
+    0.515
+   ],
+   "september_net_rupees_base_case": 1251
+  },
+  "reported + rebuilt history": {
+   "test_auc": 0.738,
+   "cv_auc_train": 0.697,
+   "brier": 0.1645,
+   "top_quintile_pred_vs_actual": [
+    0.521,
+    0.53
+   ],
+   "september_net_rupees_base_case": 1510
+  },
+  "+ 8 product flags": {
+   "test_auc": 0.747,
+   "cv_auc_train": 0.69,
+   "brier": 0.1634,
+   "top_quintile_pred_vs_actual": [
+    0.516,
+    0.485
+   ],
+   "september_net_rupees_base_case": 1289,
+   "test_auc_change_95pct_ci": [
+    -0.005,
+    0.021
+   ]
+  },
+  "+ item count (numeric)": {
+   "test_auc": 0.738,
+   "cv_auc_train": 0.697,
+   "brier": 0.1643,
+   "top_quintile_pred_vs_actual": [
+    0.515,
+    0.515
+   ],
+   "september_net_rupees_base_case": 1524
+  }
+ }
+}

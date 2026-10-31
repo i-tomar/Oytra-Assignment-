@@ -1,0 +1,123 @@
+ts,order_id,actor,event,text,flow,state,payment_status,lang,action,risk,model_version
+2026-10-01T10:00+05:30,KT999001,oytra,message:confirm,"Namaste Pooja ji! Aapne OYTRA se Rice Water Shampoo Bar (₹649, Cash on Delivery) order kiya hai. Order confirm karne ke liye HAAN likhein, cancel ke liye NAHI.
+(Prefer English? Reply ENGLISH)",confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T11:00+05:30,KT999001,customer,reply,haan ji bhej do,confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T11:00+05:30,KT999001,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T11:00+05:30,KT999001,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T11:00+05:30,KT999001,oytra,message:confirmed,"Dhanyavaad! Aapka order confirm ho gaya, aaj ship hoga. 🚚",confirm,CONFIRMED,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999002,oytra,message:confirm,"Hi Ananya! Thanks for ordering Rice Water Shampoo Bar (₹649, Cash on Delivery) from OYTRA. Please reply YES to confirm and we'll ship today, or NO to cancel.
+(Hindi mein message chahiye? Reply HINDI)",confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999002,customer,reply,no I ordered by mistake,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999002,system,cancelled_by_customer,,confirm,CANCELLED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999002,oytra,message:cancelled,"Okay, we've cancelled your order. You can reorder any time.",confirm,CANCELLED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,oytra,message:confirm,"Hi Ananya! Thanks for ordering Rice Water Shampoo Bar (₹649, Cash on Delivery) from OYTRA. Please reply YES to confirm and we'll ship today, or NO to cancel.
+(Hindi mein message chahiye? Reply HINDI)",confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,customer,reply,kab tak aayega?,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,oytra,message:eta,Delivery usually takes 3–5 days after confirmation. Reply YES to confirm your order.,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,customer,reply,ok yes,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999003,oytra,message:confirmed,Thank you! Your order is confirmed and ships today. 🚚,confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999004,oytra,message:confirm,"Namaste Pooja ji! Aapne OYTRA se Rice Water Shampoo Bar (₹649, Cash on Delivery) order kiya hai. Order confirm karne ke liye HAAN likhein, cancel ke liye NAHI.
+(Prefer English? Reply ENGLISH)",confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999004,customer,reply,🙏🙏,confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999004,oytra,message:unclear,"Maaf kijiye, samajh nahi aaya. Confirm ke liye HAAN, cancel ke liye NAHI likhein.",confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999004,customer,reply,hmm,confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999004,system,handoff_to_human,,confirm,HANDOFF,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999004,oytra,message:handoff,Hamari team aapse jaldi baat karegi.,confirm,HANDOFF,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999005,oytra,message:confirm,"Namaste Pooja ji! Aapne OYTRA se Rice Water Shampoo Bar (₹649, Cash on Delivery) order kiya hai. Order confirm karne ke liye HAAN likhein, cancel ke liye NAHI.
+(Prefer English? Reply ENGLISH)",confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T22:00+05:30,KT999005,oytra,message:reminder,"Yaad dilaana: aapka OYTRA order intezaar mein hai. Ship karne ke liye HAAN likhein, cancel ke liye NAHI.",confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999005,system,timeout_manual_review,"No reply in 24h -> manual ops review (call, then ship or cancel)",confirm,MANUAL_OPS_REVIEW,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999005,system,ops_review_ship,Ops called the customer -> ship,confirm,CONFIRMED,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999005,system,order_released,Order released to warehouse (ops review),confirm,CONFIRMED,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999006,oytra,message:nudge,"Hi Ananya! Your OYTRA order Rice Water Shampoo Bar is ₹649 COD. Pay online now and get ₹50 off (you pay ₹599) + priority dispatch: https://pay.oytra.in/KT999006
+Reply 1 to pay online, 2 to keep Cash on Delivery.
+(Hindi mein message chahiye? Reply HINDI)",nudge,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999006,customer,reply,1,nudge,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999006,oytra,message:paylink,Here is your secure payment link for ₹599: https://pay.oytra.in/KT999006. Order ships as soon as payment is done.,nudge,PAYMENT_PENDING,pending,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:12+05:30,KT999006,system,payment_success,Gateway: payment verified,nudge,PAID,paid,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:12+05:30,KT999006,system,order_released,Order released to warehouse (paid online),nudge,PAID,paid,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:12+05:30,KT999006,oytra,message:paid,"Payment of ₹599 received, thank you! Your order ships today. 🚚",nudge,PAID,paid,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:12+05:30,KT999006,system,payment_duplicate_ignored,Gateway event pay_evt_001 already processed -> ignored,nudge,PAID,paid,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,oytra,message:nudge,"Hi Ananya! Your OYTRA order Rice Water Shampoo Bar is ₹649 COD. Pay online now and get ₹50 off (you pay ₹599) + priority dispatch: https://pay.oytra.in/KT999007
+Reply 1 to pay online, 2 to keep Cash on Delivery.
+(Hindi mein message chahiye? Reply HINDI)",nudge,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,customer,reply,1,nudge,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,oytra,message:paylink,Here is your secure payment link for ₹599: https://pay.oytra.in/KT999007. Order ships as soon as payment is done.,nudge,PAYMENT_PENDING,pending,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,system,payment_failed,Gateway: payment failed (attempt 1),nudge,PAYMENT_PENDING,failed,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,oytra,message:payfail,"Your payment didn't go through. Try again here: https://pay.oytra.in/KT999007
+Or reply 2 to keep Cash on Delivery.",nudge,PAYMENT_PENDING,pending,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,system,payment_failed,Gateway: payment failed (attempt 2),nudge,PAYMENT_PENDING,failed,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,system,fallback_to_cod,"2 failed payments -> keep COD, send COD confirmation",nudge,PAYMENT_PENDING,failed,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,oytra,message:confirm,"Hi Ananya! Thanks for ordering Rice Water Shampoo Bar (₹649, Cash on Delivery) from OYTRA. Please reply YES to confirm and we'll ship today, or NO to cancel.",confirm,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,customer,reply,yes,confirm,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999007,oytra,message:confirmed,Thank you! Your order is confirmed and ships today. 🚚,confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999008,oytra,message:nudge,"Namaste Pooja ji! Aapka OYTRA order Rice Water Shampoo Bar ₹649 COD hai. Abhi online pay karein aur ₹50 ki chhoot paayein (sirf ₹599) + jaldi dispatch: https://pay.oytra.in/KT999008
+Online pay ke liye 1, COD rakhne ke liye 2 likhein.
+(Prefer English? Reply ENGLISH)",nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999008,customer,reply,1,nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999008,oytra,message:paylink,Yeh raha payment link (₹599): https://pay.oytra.in/KT999008. Payment hote hi order ship hoga.,nudge,PAYMENT_PENDING,pending,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,oytra,message:paytimeout,"Online payment nahi mila, koi baat nahi, aapka order Cash on Delivery rahega.",nudge,PAYMENT_PENDING,pending,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,system,fallback_to_cod,No verified payment within 2h -> COD confirmation,nudge,PAYMENT_PENDING,pending,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,oytra,message:confirm,"Namaste Pooja ji! Aapne OYTRA se Rice Water Shampoo Bar (₹649, Cash on Delivery) order kiya hai. Order confirm karne ke liye HAAN likhein, cancel ke liye NAHI.",confirm,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,customer,reply,haan,confirm,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999008,oytra,message:confirmed,"Dhanyavaad! Aapka order confirm ho gaya, aaj ship hoga. 🚚",confirm,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999009,oytra,message:nudge,"Namaste Pooja ji! Aapka OYTRA order Rice Water Shampoo Bar ₹649 COD hai. Abhi online pay karein aur ₹50 ki chhoot paayein (sirf ₹599) + jaldi dispatch: https://pay.oytra.in/KT999009
+Online pay ke liye 1, COD rakhne ke liye 2 likhein.
+(Prefer English? Reply ENGLISH)",nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T22:00+05:30,KT999009,oytra,message:reminder_nudge,"Yaad dilaana: ₹50 ki online-payment chhoot 12 ghante mein khatam ho jayegi. Online pay ke liye 1, COD ke liye 2 likhein.",nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999009,system,fallback_to_cod,No reply to prepaid nudge in 24h -> switch to COD confirmation,nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999009,oytra,message:confirm,"Namaste Pooja ji! Aapne OYTRA se Rice Water Shampoo Bar (₹649, Cash on Delivery) order kiya hai. Order confirm karne ke liye HAAN likhein, cancel ke liye NAHI.
+(Prefer English? Reply ENGLISH)",confirm,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999009,customer,reply,haan,confirm,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999009,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999009,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-02T10:00+05:30,KT999009,oytra,message:confirmed,"Dhanyavaad! Aapka order confirm ho gaya, aaj ship hoga. 🚚",confirm,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,oytra,message:nudge,"Namaste Pooja ji! Aapka OYTRA order Rice Water Shampoo Bar ₹649 COD hai. Abhi online pay karein aur ₹50 ki chhoot paayein (sirf ₹599) + jaldi dispatch: https://pay.oytra.in/KT999013
+Online pay ke liye 1, COD rakhne ke liye 2 likhein.
+(Prefer English? Reply ENGLISH)",nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,customer,reply,1,nudge,AWAITING,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,oytra,message:paylink,Yeh raha payment link (₹599): https://pay.oytra.in/KT999013. Payment hote hi order ship hoga.,nudge,PAYMENT_PENDING,pending,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,customer,reply,cod rakho,nudge,PAYMENT_PENDING,pending,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,system,keep_cod,Customer kept COD (confirmed),nudge,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,system,order_released,Order released to warehouse (Customer kept COD (confirmed)),nudge,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999013,oytra,message:confirmed,"Dhanyavaad! Aapka order confirm ho gaya, aaj ship hoga. 🚚",nudge,CONFIRMED,cod,hi,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999014,oytra,message:nudge,"Hi Ananya! Your OYTRA order Rice Water Shampoo Bar is ₹649 COD. Pay online now and get ₹50 off (you pay ₹599) + priority dispatch: https://pay.oytra.in/KT999014
+Reply 1 to pay online, 2 to keep Cash on Delivery.
+(Hindi mein message chahiye? Reply HINDI)",nudge,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999014,customer,reply,1,nudge,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999014,oytra,message:paylink,Here is your secure payment link for ₹599: https://pay.oytra.in/KT999014. Order ships as soon as payment is done.,nudge,PAYMENT_PENDING,pending,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,oytra,message:paytimeout,"We didn't receive the online payment, no problem, we'll keep your order as Cash on Delivery.",nudge,PAYMENT_PENDING,pending,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,system,fallback_to_cod,No verified payment within 2h -> COD confirmation,nudge,PAYMENT_PENDING,pending,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,oytra,message:confirm,"Hi Ananya! Thanks for ordering Rice Water Shampoo Bar (₹649, Cash on Delivery) from OYTRA. Please reply YES to confirm and we'll ship today, or NO to cancel.",confirm,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,customer,reply,yes,confirm,AWAITING,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,oytra,message:confirmed,Thank you! Your order is confirmed and ships today. 🚚,confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,system,late_payment_refund_review,Gateway: payment pay_evt_late received at 2026-10-01T12:00+05:30 AFTER COD fallback (order CONFIRMED) -> flagged for refund/ops review,confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T12:00+05:30,KT999014,system,payment_duplicate_ignored,Gateway event pay_evt_late already processed -> ignored,confirm,CONFIRMED,cod,en,NUDGE,0.68,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999010,oytra,message:address,"Hi Ananya! We want to deliver your OYTRA order but the address/name looks incomplete: ""call me"". Please reply with your full name, house/flat no., street and landmark.
+(Hindi mein message chahiye? Reply HINDI)",address,AWAITING,cod,en,CONFIRM,0.52,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999010,customer,reply,"Flat 304, Sai Krupa Apartments, Station Road, near SBI Bank",address,AWAITING,cod,en,CONFIRM,0.52,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999010,system,address_updated,Address received -> confirmed COD,address,CONFIRMED,cod,en,CONFIRM,0.52,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999010,system,order_released,Order released to warehouse (Address received -> confirmed COD),address,CONFIRMED,cod,en,CONFIRM,0.52,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999010,oytra,message:addr_ok,"Thanks, address updated! Your order will ship today.",address,CONFIRMED,cod,en,CONFIRM,0.52,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,oytra,message:confirm,"Namaste Pooja ji! Aapne OYTRA se Rice Water Shampoo Bar (₹649, Cash on Delivery) order kiya hai. Order confirm karne ke liye HAAN likhein, cancel ke liye NAHI.
+(Prefer English? Reply ENGLISH)",confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,customer,reply,English,confirm,AWAITING,cod,hi,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,system,language_set,Language set to en by customer,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,oytra,message:confirm,"Hi Pooja! Thanks for ordering Rice Water Shampoo Bar (₹649, Cash on Delivery) from OYTRA. Please reply YES to confirm and we'll ship today, or NO to cancel.",confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,customer,reply,yes,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999011,oytra,message:confirmed,Thank you! Your order is confirmed and ships today. 🚚,confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999012,oytra,message:confirm,"Hi Pooja! Thanks for ordering Rice Water Shampoo Bar (₹649, Cash on Delivery) from OYTRA. Please reply YES to confirm and we'll ship today, or NO to cancel.",confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999012,customer,reply,yes,confirm,AWAITING,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999012,system,confirmed,Customer confirmed,confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999012,system,order_released,Order released to warehouse (Customer confirmed),confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe
+2026-10-01T10:00+05:30,KT999012,oytra,message:confirmed,Thank you! Your order is confirmed and ships today. 🚚,confirm,CONFIRMED,cod,en,CONFIRM,0.47,model-e4bf8bb3/rules-d78ffe

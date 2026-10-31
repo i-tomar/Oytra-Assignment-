@@ -1,0 +1,29 @@
+setting,value,what_it_means
+ship_below_risk,0.4,Orders with RTO risk below this are shipped straight away (0.4 = 40%). Tuned policy choice (Apr-Aug); not derived from a formula
+confirm_below_risk,0.6,Risk between ship_below_risk and this: customer must confirm on WhatsApp before we ship. 0.6 is a manual policy choice (DECISION_LOG #8)
+nudge_below_risk,0.875,Risk between confirm_below_risk and this: offer prepaid discount (falls back to WhatsApp confirmation). Above this: Hold/Cancel
+protect_first_time_customers,yes,"If yes, a customer whose reported history says first order (REPORTED_FIRST_TIME) is never auto-cancelled on risk score alone (worst case = prepaid nudge)"
+protect_unknown_history,yes,"If yes, an order whose customer history is UNKNOWN_OR_INCONSISTENT is never cancelled on the risk score alone (worst case = prepaid nudge then ops review). Unknown history is never itself evidence for cancelling"
+fake_name_action,confirm,What to do with names like 'test' or 'asdf': confirm (WhatsApp asks for real name + confirmation before shipping) or hold. Overrides the risk band (docs/RULE_PRECEDENCE.md)
+unusable_address_action,confirm,What to do with addresses like '.' or 'call me': confirm (WhatsApp asks for the full address first; we never ship without it) or hold. Overrides the risk band
+prepaid_discount_rupees,50,Discount offered for switching to prepaid (see memo for the maths)
+prepaid_takeup_if_baseline_delivered,0.25,"HYPOTHETICAL (base): share of nudged orders that switch to prepaid, among orders that WOULD HAVE BEEN DELIVERED under the original COD process. 'Baseline delivered' is a counterfactual category known only in hindsight, not an observable customer identity. Not measured; replace with pilot result"
+prepaid_takeup_if_baseline_delivered_conservative,0.15,HYPOTHETICAL conservative value of the row above
+prepaid_takeup_if_baseline_delivered_optimistic,0.35,HYPOTHETICAL optimistic value of the row above
+prepaid_takeup_if_baseline_rto,0.1,"HYPOTHETICAL (base): share of nudged orders that switch to prepaid, among orders that WOULD HAVE BEEN RTO under the original COD process (counterfactual category, not an observable identity). Assumed lower than for baseline-delivered orders. Not measured"
+prepaid_takeup_if_baseline_rto_conservative,0.0,HYPOTHETICAL conservative value of the row above
+prepaid_takeup_if_baseline_rto_optimistic,0.2,HYPOTHETICAL optimistic value of the row above
+confirm_catches_rto_share,0.5,HYPOTHETICAL (base): share of would-be RTOs that WhatsApp confirmation stops (they say no or never reply)
+confirm_catches_rto_share_conservative,0.35,HYPOTHETICAL conservative value of the row above
+confirm_catches_rto_share_optimistic,0.65,HYPOTHETICAL optimistic value of the row above
+confirm_genuine_loss_share,0.08,HYPOTHETICAL (base): share of genuine buyers lost because they never confirm
+confirm_genuine_loss_share_conservative,0.12,HYPOTHETICAL conservative value of the row above
+confirm_genuine_loss_share_optimistic,0.05,HYPOTHETICAL optimistic value of the row above
+assumed_future_contribution_first_time_rupees,0,"Base = 0. Marketing's Rs 300 CAC is acquisition SPEND, not profit, so it is not counted as value. Reported separately as a Marketing metric. Only change with an independent, defensible repeat-purchase estimate"
+ops_max_friction_share,0.25,"ASSUMPTION used only by the argmax-EV comparison: at most this share of orders may go to WhatsApp confirm/nudge (about 410 conversations a month at 1650 COD orders, ~14 a day for one ops person)"
+no_reply_action_confirm,manual_review,"What to do if no reply to the confirmation after reminder + 24h: manual_review (ops calls, then ship or cancel), cancel, or ship"
+no_reply_action_address,manual_review,"What to do if no reply to the address request after 24h: manual_review (ops calls for the address) or cancel. Never shipped blind"
+no_reply_action_nudge,confirm,What to do if no reply to the prepaid nudge after 24h: confirm (send COD confirmation) or ship
+reminder_after_hours,12,Send one reminder this many hours after the first message
+zero_value_order_action,confirm,"Rs 0 orders (free replacement, gift, 100% coupon): never nudged (nothing to discount) or auto-cancelled; confirm or ship"
+payment_timeout_hours,2,"If a customer chose to pay online but the payment is not confirmed within this many hours (or fails twice), fall back to COD confirmation"

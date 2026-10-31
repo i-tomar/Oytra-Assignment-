@@ -1,0 +1,49 @@
+{
+ "run_at_ist": "2026-10-30 22:14 IST",
+ "provider_base_url": "https://api.groq.com/openai/v1",
+ "model": "openai/gpt-oss-20b",
+ "prompt_version": "judge-v2",
+ "cases": 60,
+ "data": "synthetic, written for this eval; no customer data sent",
+ "labels": "DRAFT expected labels written by the assistant - need Ishan's human review; agreement below is vs these drafts, not verified ground truth",
+ "first_attempt_network_errors": 44,
+ "retries_used": 56,
+ "json_valid": 60,
+ "api_errors": 0,
+ "invalid_outputs": 0,
+ "agreement_vs_draft": {
+  "name_address_both_fields": {
+   "llm": 23,
+   "rules": 25,
+   "of": 30
+  },
+  "name_fake": {
+   "llm": 28,
+   "rules": 28,
+   "of": 30
+  },
+  "address_kind": {
+   "llm": 24,
+   "rules": 27,
+   "of": 30
+  },
+  "intent": {
+   "llm": 29,
+   "rules": 30,
+   "of": 30
+  }
+ },
+ "latency_ms": {
+  "median": 491,
+  "p90": 633,
+  "max": 862
+ },
+ "tokens": {
+  "prompt_tokens": 12033,
+  "completion_tokens": 13332
+ },
+ "cost_usd_this_run": 0.004902,
+ "cost_per_1000_orders_inr_estimate": 7.19,
+ "price_source": "Groq list price for the model, console.groq.com, read 31 Oct 2026; USD->INR 88 is an assumption",
+ "decision_impact": "none: backtests always use RuleJudge; the LLM is opt-in (OYTRA_USE_LLM=1) and only produces features/intent"
+}

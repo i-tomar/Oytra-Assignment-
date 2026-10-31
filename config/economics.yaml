@@ -1,0 +1,14 @@
+# Business economics from the OYTRA brief. Change here if costs change.
+forward_shipping: 65
+return_shipping: 65
+packaging_handling: 25
+damage_rate: 0.08          # share of RTO products that can't be resold
+avg_product_cost: 180
+gross_margin: 0.62         # on a delivered order's value
+prepaid_rto_rate: 0.04    # ASSIGNMENT-PROVIDED ASSUMPTION (brief), not a measured outcome of a prepaid-conversion cohort
+payment_gateway_fee: 0.02  # ASSUMPTION (typical Indian PG fee), not in brief
+whatsapp_msg_cost: 1.0     # ASSUMPTION per conversation, rupees
+monthly_orders: 3000
+cod_share: 0.55
+brief_aov: 649
+cac: 300                  # Marketing CAC from the brief. Acquisition SPEND (sunk), reported as a Marketing metric; never counted as value

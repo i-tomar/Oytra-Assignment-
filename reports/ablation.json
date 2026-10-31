@@ -1,0 +1,214 @@
+{
+ "split": "train Apr-Aug (1,658), test Sep (329); thresholds 0.4/0.6/0.875 from rules.csv; base-case Rs assumptions",
+ "note": "One September month (86 RTOs): AUC differences under ~0.01 and Rs differences of a few hundred are within noise.",
+ "rows": [
+  {
+   "variant": "full model (production)",
+   "dropped": [],
+   "test_auc": 0.738,
+   "pr_auc": 0.534,
+   "brier": 0.1643,
+   "september_net_rupees": 1387,
+   "delta_auc": 0.0,
+   "delta_net": 0
+  },
+  {
+   "variant": "drop pin_logit",
+   "dropped": [
+    "pin_logit"
+   ],
+   "test_auc": 0.693,
+   "pr_auc": 0.512,
+   "brier": 0.1698,
+   "september_net_rupees": 1425,
+   "delta_auc": -0.045,
+   "delta_net": 38
+  },
+  {
+   "variant": "drop first_time",
+   "dropped": [
+    "first_time"
+   ],
+   "test_auc": 0.729,
+   "pr_auc": 0.523,
+   "brier": 0.1658,
+   "september_net_rupees": 1348,
+   "delta_auc": -0.009,
+   "delta_net": -39
+  },
+  {
+   "variant": "drop prior_rto",
+   "dropped": [
+    "prior_rto"
+   ],
+   "test_auc": 0.725,
+   "pr_auc": 0.513,
+   "brier": 0.1676,
+   "september_net_rupees": 1256,
+   "delta_auc": -0.013,
+   "delta_net": -131
+  },
+  {
+   "variant": "drop prior_rto_rate",
+   "dropped": [
+    "prior_rto_rate"
+   ],
+   "test_auc": 0.737,
+   "pr_auc": 0.533,
+   "brier": 0.1647,
+   "september_net_rupees": 1334,
+   "delta_auc": -0.001,
+   "delta_net": -53
+  },
+  {
+   "variant": "drop meta_first_time",
+   "dropped": [
+    "meta_first_time"
+   ],
+   "test_auc": 0.727,
+   "pr_auc": 0.528,
+   "brier": 0.1658,
+   "september_net_rupees": 1674,
+   "delta_auc": -0.011,
+   "delta_net": 287
+  },
+  {
+   "variant": "drop single_item",
+   "dropped": [
+    "single_item"
+   ],
+   "test_auc": 0.733,
+   "pr_auc": 0.524,
+   "brier": 0.1664,
+   "september_net_rupees": 1522,
+   "delta_auc": -0.005,
+   "delta_net": 135
+  },
+  {
+   "variant": "drop address_score",
+   "dropped": [
+    "address_score"
+   ],
+   "test_auc": 0.691,
+   "pr_auc": 0.484,
+   "brier": 0.1724,
+   "september_net_rupees": 1868,
+   "delta_auc": -0.047,
+   "delta_net": 481
+  },
+  {
+   "variant": "drop name_fake",
+   "dropped": [
+    "name_fake"
+   ],
+   "test_auc": 0.737,
+   "pr_auc": 0.522,
+   "brier": 0.165,
+   "september_net_rupees": 1418,
+   "delta_auc": -0.001,
+   "delta_net": 31
+  },
+  {
+   "variant": "drop phone_invalid",
+   "dropped": [
+    "phone_invalid"
+   ],
+   "test_auc": 0.741,
+   "pr_auc": 0.543,
+   "brier": 0.1631,
+   "september_net_rupees": 1443,
+   "delta_auc": 0.003,
+   "delta_net": 56
+  },
+  {
+   "variant": "drop value_k",
+   "dropped": [
+    "value_k"
+   ],
+   "test_auc": 0.728,
+   "pr_auc": 0.525,
+   "brier": 0.1664,
+   "september_net_rupees": 1831,
+   "delta_auc": -0.01,
+   "delta_net": 444
+  },
+  {
+   "variant": "drop night",
+   "dropped": [
+    "night"
+   ],
+   "test_auc": 0.737,
+   "pr_auc": 0.535,
+   "brier": 0.1644,
+   "september_net_rupees": 1456,
+   "delta_auc": -0.001,
+   "delta_net": 69
+  },
+  {
+   "variant": "group: customer history (reported)",
+   "dropped": [
+    "first_time",
+    "prior_rto",
+    "prior_rto_rate",
+    "meta_first_time"
+   ],
+   "test_auc": 0.689,
+   "pr_auc": 0.5,
+   "brier": 0.1716,
+   "september_net_rupees": 1452,
+   "delta_auc": -0.049,
+   "delta_net": 65
+  },
+  {
+   "variant": "group: area (pincode/state RTO rate)",
+   "dropped": [
+    "pin_logit"
+   ],
+   "test_auc": 0.693,
+   "pr_auc": 0.512,
+   "brier": 0.1698,
+   "september_net_rupees": 1425,
+   "delta_auc": -0.045,
+   "delta_net": 38
+  },
+  {
+   "variant": "group: address / name / phone quality",
+   "dropped": [
+    "address_score",
+    "name_fake",
+    "phone_invalid"
+   ],
+   "test_auc": 0.683,
+   "pr_auc": 0.451,
+   "brier": 0.1761,
+   "september_net_rupees": 2073,
+   "delta_auc": -0.055,
+   "delta_net": 686
+  },
+  {
+   "variant": "group: order value + night-time",
+   "dropped": [
+    "value_k",
+    "night"
+   ],
+   "test_auc": 0.727,
+   "pr_auc": 0.525,
+   "brier": 0.1665,
+   "september_net_rupees": 1866,
+   "delta_auc": -0.011,
+   "delta_net": 479
+  },
+  {
+   "variant": "group: basket (single item)",
+   "dropped": [
+    "single_item"
+   ],
+   "test_auc": 0.733,
+   "pr_auc": 0.524,
+   "brier": 0.1664,
+   "september_net_rupees": 1522,
+   "delta_auc": -0.005,
+   "delta_net": 135
+  }
+ ]
+}
